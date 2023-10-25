@@ -12,6 +12,8 @@ const diceEl = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
+const diceSound = document.getElementById('dice-sound');
+const winSound = document.getElementById('win-sound');
 
 // Start conditions
 
@@ -51,6 +53,8 @@ btnRoll.addEventListener('click', function () {
   if (playing) {
     // 1.Generating a random dice roll
     const dice = Math.trunc(Math.random() * 6) + 1;
+    diceSound.currentTime = 0;
+    diceSound.play();
 
     // 2.Display dice
     diceEl.classList.remove('hidden');
@@ -80,6 +84,9 @@ btnHold.addEventListener('click', function () {
 
     // 2. Check if player's score is >=10
     if (scores[activePlayer] >= 50) {
+      winSound.currentTime = 0;
+      winSound.play();
+
       // Finish the game
       playing = false;
       diceEl.classList.add('hidden');
