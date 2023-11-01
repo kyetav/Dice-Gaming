@@ -1,6 +1,6 @@
 # Dice-Gaming
 "Dice game: roll a dice and accumulate points. Be careful! If the dice lands on number 1, you will lose all accumulated points.
- The first to reach 50 points wins. Have a good time! Link to play: https://kyetav.github.io/Dice-Gaming/
+ The first to reach 50 points wins. Have a good time! Link to play: https://kyetav.github.io/dice-gaming/
 
 (At the moment I added sound effects when the dice is rolled and when the player wins)
 
