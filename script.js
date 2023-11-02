@@ -14,6 +14,7 @@ const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 const diceSound = document.getElementById('dice-sound');
 const winSound = document.getElementById('win-sound');
+const currentLL = document.querySelector('current-label');
 
 // Start conditions
 
@@ -38,6 +39,14 @@ const initGame = function () {
   player1El.classList.remove('player--active');
 };
 initGame();
+const pointToWin = function () {
+  winSound.currentTime = 0;
+  winSound.play();
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.add('player--winner');
+  playing = false;
+};
 
 const switchPlayer = function () {
   currentScore += dice;
@@ -66,6 +75,10 @@ btnRoll.addEventListener('click', function () {
       currentScore += dice;
       document.getElementById(`current--${activePlayer}`).textContent =
         currentScore;
+
+      if (currentScore >= 50) {
+        pointToWin();
+      }
     } else {
       // 4.Switch to next player
       switchPlayer();
